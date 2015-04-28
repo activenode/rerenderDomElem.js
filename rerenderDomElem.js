@@ -1,9 +1,16 @@
-window.renderElem = function(elem, tms) {
+window.renderElem = function(elem, timingFunc) {
     var sel = ('hide' in elem) ? elem[0] : elem;
     
-    window.setTimeout(function(){
+    console.log(sel,'rerender here!!');
+    
+    var renderFunc = function(){
         sel.style.display='none';
         sel.offsetHeight; 
         sel.style.display='';
-    }, tms!==undefined ? tms : 45);
+    };
+    if (timingFunc) {
+        timingFunc(renderFunc)
+    }
+    
+    window.setTimeout(renderFunc, 15);
 };
