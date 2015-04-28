@@ -1,8 +1,9 @@
-window.renderElem = function(elem) {
-    var sel = (elem instanceof jQuery) ? elem[0] : elem;
+window.renderElem = function(elem, tms) {
+    var sel = ('hide' in elem) ? elem[0] : elem;
+    
     window.setTimeout(function(){
         sel.style.display='none';
         sel.offsetHeight; 
         sel.style.display='';
-    },1);
+    }, tms!==undefined ? tms : 45);
 };
