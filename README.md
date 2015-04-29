@@ -7,11 +7,4 @@ To workaround this behaviour this function enforces rerendering of an element.
 
 ## Examples
 
-
-** Use in Angular like this **
-
-`renderElem(angular.element('.JM_typelisting')[0], $timeout);`
-
-** Use without framework like this **
-
-`renderElem(yourDomElement);`
+TBD...
