@@ -1,4 +1,5 @@
-(function($w,$){
+(function($w){
+        
         $w.renderElem = function(elem, timingFunc, ms) {
             var sel = ('hide' in elem) ? elem[0] : elem;
             
@@ -8,9 +9,14 @@
             sel.style.display = 'none';
             sel.offsetHeight;
             sel.style.display = '';
+            var prevFontSize = $w.getComputedStyle(sel).fontSize;
+            var prevFontSizeReal = sel.style.fontSize;
+            var fFontSize = parseFloat(prevFontSize);
+            var dimFontSize = prevFontSize.replace(''+fFontSize,'');
+            sel.style.fontSize = (1.0002 * fFontSize) + '' + dimFontSize; 
             
             var render = function(){
-                $(sel).toggleClass('JM_rendertoggle');
+                sel.style.fontSize = prevFontSizeReal;
             };
             
             var timingFunc;
@@ -26,4 +32,4 @@
                 }
             };
         };
-    }(window, jQuery));
+    }(window));
