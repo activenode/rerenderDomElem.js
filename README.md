@@ -7,4 +7,6 @@ To workaround this behaviour this function enforces rerendering of an element.
 
 ## Examples
 
-TBD...
+    $(window).load({
+      this.renderElem(document.body); //will re-render whole document
+    });
